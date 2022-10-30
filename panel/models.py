@@ -2,8 +2,11 @@ from django.db import models
 
 class Configuracion(models.Model):
     titulo_tab = models.CharField(max_length=30)
-    nombre_clinica = models.CharField(max_length=20)
-    nombre_usuario = models.CharField(max_length=20)
+    nombre_clinica = models.CharField(max_length=20, default='Nombre Clinica')
+    nombre_usuario = models.CharField(max_length=20, default='Nombre Usuario')
+
+    def __str__(self):
+        return f'Configuracion pagina {self.nombre_usuario}'   
 
 
 
