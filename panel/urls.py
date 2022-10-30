@@ -1,10 +1,17 @@
 from django.contrib import admin
 from django.urls import path
 
-from panel.views import UsuarioLogin, UsuarioLogout, principal
+from panel.views import (PacienteCreate, PacienteDelete, PacienteDetail, PacienteUpdate, 
+                        UsuarioLogin, UsuarioLogout, principal, PacienteList)
 
 urlpatterns = [
     path('', principal, name='index'),
     path('login/', UsuarioLogin.as_view(), name='panel-login'),
     path('logout/', UsuarioLogout.as_view(), name='panel-logout'),
+    path('paciente-list/', PacienteList.as_view(), name='paciente-list'),
+    path('paciente-ficha/<int:pk>', PacienteDetail.as_view(), name='paciente-ficha'),
+    path('paciente-create/', PacienteCreate.as_view(), name='paciente-create'),
+    path('paciente-update/<int:pk>', PacienteUpdate.as_view(), name='paciente-update'),
+    path('paciente-delete/<int:pk>', PacienteDelete.as_view(), name='paciente-delete'),
+
 ]

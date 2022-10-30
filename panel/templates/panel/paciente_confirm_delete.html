@@ -114,76 +114,39 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">{{configuracion.nombre_usuario}}</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Panel principal</li>
+                            <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
+                            <li class="breadcrumb-item active">Ficha de paciente</li>
                         </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Nuevo paciente</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="paciente-create">Iniciar historia clinica</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Historias clinicas</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver mas</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Calendario</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver mas</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Reservas</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">Ver mas</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Agenda de hoy
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Proximas consultas
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
+                        
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Pacientes
+                                Ficha de {{paciente.nombre}}
                             </div>
                             <div class="card-body">
-                                <a href="paciente-list">Mostrar lista</a>
+                                ¿Está seguro de eliminar la ficha del paciente {{paciente.nombre}} {{paciente.apellido}}? 
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {{form}}
+                                        <input type="submit" value="si">
+                                    </form>
+                                <br>
+
+                                <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
+                                    
+                                <br><a href="/principal/paciente-list">Atras</a>
                             </div>
+
+                            <!-- <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Historial de sesiones
+                            </div>
+                            <div class="card-body">
+                                
+                            </div>-->
                         </div>
                     </div>
+                    
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

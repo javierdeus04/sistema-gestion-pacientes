@@ -114,14 +114,15 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">{{configuracion.nombre_usuario}}</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Panel principal</li>
+                            <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
+                            <li class="breadcrumb-item active">Lista de pacientes</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">Nuevo paciente</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="paciente-create">Iniciar historia clinica</a>
+                                        <a class="small text-white stretched-link" href="/principal/paciente-create">Iniciar historia clinica</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -180,7 +181,17 @@
                                 Pacientes
                             </div>
                             <div class="card-body">
-                                <a href="paciente-list">Mostrar lista</a>
+
+                                {% for paciente in object_list %}
+                                <ul>
+                                    <li> {{paciente}}<br>                                        
+                                            <a href='/principal/paciente-ficha/{{paciente.pk}}'>Ver ficha</a>
+                                            <a href='/principal/paciente-delete/{{paciente.pk}}'>Eliminar</a></li>                                           
+                                    
+                                </ul>
+                                {% endfor %}
+
+                                <a href="/principal">Ocultar lista<a>
                             </div>
                         </div>
                     </div>
