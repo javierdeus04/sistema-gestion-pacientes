@@ -14,7 +14,6 @@ def principal(request):
 
 class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
-    configuracion = Configuracion.objects.first()
 
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
@@ -32,6 +31,11 @@ class PacienteUpdate(LoginRequiredMixin, UpdateView):
 class PacienteDelete(LoginRequiredMixin, DeleteView):
     model = Paciente
     success_url = reverse_lazy("index")
+
+class PacienteSearch(LoginRequiredMixin, ListView):
+    def get_queryset(self):
+        paciente_nombre = self.request.GET.get('nombre')
+        return Paciente.objects.filter(nombre__icontains=paciente_nombre)
     
 class UsuarioLogin(LoginView):
     template_name = 'panel/login.html'
