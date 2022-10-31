@@ -4,6 +4,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.contrib.auth.forms import UserCreationForm
 
 from panel.models import Configuracion, Paciente
 
@@ -43,3 +44,8 @@ class UsuarioLogin(LoginView):
 
 class UsuarioLogout(LogoutView):
     template_name = 'panel/logout.html'
+
+class UsuarioSignUp(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy("index")
+    template_name = "panel/signup.html"

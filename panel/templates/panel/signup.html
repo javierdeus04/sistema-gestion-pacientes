@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Sesion cerrada</title>
+        <title>Ingreso de usuario</title>
         <link href="{% static 'coder/css/styles.css' %}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
@@ -19,14 +19,18 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Hasta la próxima!</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Bienvenido</h3></div>
                                     <div class="card-body">
-                                        <center><h4>La sesión fue cerrada con éxito</h4><br>
-                                            <button type="submit"><a href="/principal/login">Ingresar</a></button></center>
-                                            
+                                        <center>
+                                            <form method="post">
+                                                {% csrf_token %}
+                                                {{ form.as_p }}
+                                            <button type="submit">Registrarse</button>
+                                            </center>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="/principal/signup">Registrar nuevo usuario</a></div>
+                                        <div class="small"><a href="/principal/login">Volver</a></div>
+                                        <div class="small"><a href="register.html"></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -38,10 +42,11 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Desarrollado por Javier Deus 2022 -
-                                 Template downloaded from startbootstrap.com</div>
+                            <div class="text-muted">Desarrollado por Javier Deus 2022 - 
+                                Template downloaded from startbootstrap.com
+                            </div>
                             <!-- <div>
-                                <a href="#">Privacy Policy</a>
+                                 <a href="#">Privacy Policy</a>
                                 &middot;
                                 <a href="#">Terms &amp; Conditions</a>
                             </div> -->

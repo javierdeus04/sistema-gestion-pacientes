@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from panel.views import (PacienteCreate, PacienteDelete, PacienteDetail, PacienteSearch, PacienteUpdate, 
-                        UsuarioLogin, UsuarioLogout, principal, PacienteList)
+                        UsuarioLogin, UsuarioLogout, UsuarioSignUp, principal, PacienteList)
 
 urlpatterns = [
     path('', principal, name='index'),
@@ -14,5 +14,5 @@ urlpatterns = [
     path('paciente-update/<int:pk>', PacienteUpdate.as_view(), name='paciente-update'),
     path('paciente-delete/<int:pk>', PacienteDelete.as_view(), name='paciente-delete'),
     path('paciente-search', PacienteSearch.as_view(), name='paciente-search'),
-
+    path('signup', UsuarioSignUp.as_view(), name='usuario-signup')
 ]
