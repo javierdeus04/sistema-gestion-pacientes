@@ -15,20 +15,20 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">{{configuracion.nombre_clinica}}</a>
+            <a class="navbar-brand ps-3" href="/principal">{{configuracion.nombre_clinica}}</a>
             <!-- Sidebar Toggle
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
              Navbar Search-->
-            <!-- Barra de busqueda --><form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
                     action="{% url 'paciente-search' %}" method="get">
-                    {% csrf_token %}
-            <div class="input-group">
-                <input class="form-control" type="search" placeholder="Buscar paciente..." aria-label="Search for..."
-                 aria-describedby="btnNavbarSearch" name="nombre"/>
-               
-                <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
-            </div>
-        </form><!-- Barra de busqueda -->
+                        {% csrf_token %}
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Buscar paciente..." aria-label="Search for..."
+                     aria-describedby="btnNavbarSearch" name="nombre"/>
+                   
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
                 <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="/admin/auth/user/">Ver</a>
                                     <a class="nav-link" href="/principal/signup">Agregar</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Actualizar datos</a>
+                                    <a class="nav-link" href="/principal/user-profile/{{useradmin.username.pk}}">Actualizar datos</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Eliminar</a>
                                 </nav>
                             </div>
@@ -107,6 +107,7 @@
                             </a>
                         </div>
                     </div>-->
+                    <img src="index/tori.jpg/">
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     <br><br><br><br><br><br><br><br><br><br><div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
@@ -120,39 +121,54 @@
                         <h1 class="mt-4">{{configuracion.nombre_usuario}}</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
-                            <li class="breadcrumb-item active">Ficha de paciente</li>
+                            <li class="breadcrumb-item active">Historia clinica</li>
                         </ol>
-                        
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Ficha de {{paciente.nombre}}
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Registros</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/hc-panel/hc-list">Ver lista</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <li>Nombre completo: {{object.nombre}} {{object.apellido}}</li>
-                                <li>Fecha de nacimiento: {{object.fecha_de_nacimiento}}</li>
-                                <li>CI: {{object.numero_CI}}</li>
-                                <li>Numero de contacto: {{object.numero_contacto}}</li>
-                                <li>Motivo de ultima consulta: {{object.motivo_consulta}}</li>
-                                <br>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Historial</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="/hc-panel/hc-search">Buscar</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                               
 
-                                <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <li><b><a href="/principal/paciente-update/{{paciente.pk}}">Actualizar datos</a></b></li>
-                                    <li><b><a href="/principal/paciente-delete/{{paciente.pk}}">Eliminar</a></b></li>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Buscar registro por usuario
+                                </div>
+                                <div class="card-body">
 
-                                <br><a href="javascript:history.back()"> Volver Atrás</a>
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
+                    action="{% url 'hc-search-by-firma' %}" method="get">
+                    {% csrf_token %}
+            <div class="input-group">
+                <input class="form-control" type="search" placeholder="Buscar registro..." aria-label="Search for..."
+                 aria-describedby="btnNavbarSearch" name="firma"/>
+               
+                <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
+                                    
+                                                               
+                                </div>
+                                    
+                                </div>
                             </div>
-
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Historial de sesiones
-                            </div>
-                            <div class="card-body">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
+                            
+                                               
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">

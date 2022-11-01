@@ -120,36 +120,25 @@
                         <h1 class="mt-4">{{configuracion.nombre_usuario}}</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
-                            <li class="breadcrumb-item active">Ficha de paciente</li>
+                            <li class="breadcrumb-item active">Nuevo registro</li>
                         </ol>
                         
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Ficha de {{paciente.nombre}}
+                                Registrar historia clinica
                             </div>
                             <div class="card-body">
-                                <li>Nombre completo: {{object.nombre}} {{object.apellido}}</li>
-                                <li>Fecha de nacimiento: {{object.fecha_de_nacimiento}}</li>
-                                <li>CI: {{object.numero_CI}}</li>
-                                <li>Numero de contacto: {{object.numero_contacto}}</li>
-                                <li>Motivo de ultima consulta: {{object.motivo_consulta}}</li>
-                                <br>
-
-                                <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <li><b><a href="/principal/paciente-update/{{paciente.pk}}">Actualizar datos</a></b></li>
-                                    <li><b><a href="/principal/paciente-delete/{{paciente.pk}}">Eliminar</a></b></li>
+                                <form method="post">
+                                    {% csrf_token %}
+                                    {{form.as_p}}
+                                    <input type="submit" value="Guardar">
+                                </form>
 
                                 <br><a href="javascript:history.back()"> Volver Atrás</a>
                             </div>
 
-                            <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Historial de sesiones
-                            </div>
-                            <div class="card-body">
-                                
-                            </div>
+                            
                         </div>
                     </div>
                     

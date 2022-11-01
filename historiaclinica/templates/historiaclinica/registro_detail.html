@@ -120,7 +120,7 @@
                         <h1 class="mt-4">{{configuracion.nombre_usuario}}</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
-                            <li class="breadcrumb-item active">Ficha de paciente</li>
+                            <li class="breadcrumb-item active">Historia de paciente</li>
                         </ol>
                         
                         <div class="card mb-4">
@@ -145,9 +145,12 @@
 
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Historial de sesiones
+                                Sesion del {{registro.fecha}}
                             </div>
                             <div class="card-body">
+
+                                {{object.contenido}}
+                                <br><br><b>Responsable: {{object.firma}}</b>
                                 
                             </div>
                         </div>

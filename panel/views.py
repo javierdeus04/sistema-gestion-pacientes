@@ -5,6 +5,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.admin import UserAdmin
 
 from panel.models import Configuracion, Paciente
 
@@ -15,6 +16,8 @@ def principal(request):
 
 class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
+    ordering = ['nombre']
+    paginate_by = 10
 
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
@@ -47,5 +50,10 @@ class UsuarioLogout(LogoutView):
 
 class UsuarioSignUp(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("panel-login")
     template_name = "panel/signup.html"
+
+class ProfileUpdate(UpdateView):
+    model = UserAdmin
+    fields = ['username']
+    success_url = reverse_lazy("panel-login")

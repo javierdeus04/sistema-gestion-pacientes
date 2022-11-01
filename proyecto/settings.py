@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'panel.apps.PanelConfig',
-    'users.apps.UsersConfig',
+    'historiaclinica.apps.HistoriaclinicaConfig',
 ]
 
 MIDDLEWARE = [
