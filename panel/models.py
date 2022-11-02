@@ -1,13 +1,13 @@
-from django.db import models
+from django.db import models\
 
 class Configuracion(models.Model):
     titulo_tab = models.CharField(max_length=30)
     nombre_clinica = models.CharField(max_length=20, default='Nombre Clinica')
-    nombre_usuario = models.CharField(max_length=20, default='Nombre Usuario')
+    nombre = models.CharField(max_length=20, default='Nombre')
     logo = models.ImageField(upload_to="", null=True, blank=True)
 
     def __str__(self):
-        return f'Configuracion pagina {self.nombre_usuario}'   
+        return f'Configuracion pagina {self.nombre}'   
 
 
 
