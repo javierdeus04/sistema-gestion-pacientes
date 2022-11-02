@@ -125,23 +125,38 @@
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
+                                <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Registros</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="/hc-panel/hc-list">Ver lista</a>
+                                        <a class="small text-white stretched-link" href="/hc-panel/hc-list">Mas recientes</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Historial</div>
+                                    <div class="card-body">Nuevo registro</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="/hc-panel/hc-search">Buscar</a>
+                                        <a class="small text-white stretched-link" href="/hc-panel/hc-create">Agregar</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Buscar por firma de responsable
+                                    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
+                                    action="{% url 'hc-search-by-firma' %}" method="get">
+                                    {% csrf_token %}
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="Buscar registro..." aria-label="Search for..."
+                                 aria-describedby="btnNavbarSearch" name="firma"/>
+                               
+                                <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                            </form>
+                            
                                 {% block contenido %} {% endblock %}
                                     
                                 </div>

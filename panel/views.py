@@ -7,6 +7,7 @@ from django.views.generic import ListView, CreateView, DetailView, UpdateView, D
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import UserAdmin
 
+
 from panel.models import Configuracion, Paciente
 
 @login_required
@@ -25,16 +26,16 @@ class PacienteDetail(LoginRequiredMixin, DetailView):
 class PacienteCreate(LoginRequiredMixin, CreateView):
     model = Paciente
     fields = ['nombre', 'apellido', 'fecha_de_nacimiento', 'numero_CI', 'numero_contacto', 'motivo_consulta']
-    success_url = '/principal'
+    success_url = '/principal/paciente-list'
 
 class PacienteUpdate(LoginRequiredMixin, UpdateView):
   model = Paciente
-  success_url = reverse_lazy("index")
+  success_url = reverse_lazy("paciente-list")
   fields = ["nombre", "apellido", "numero_contacto", "motivo_consulta"]
 
 class PacienteDelete(LoginRequiredMixin, DeleteView):
     model = Paciente
-    success_url = reverse_lazy("index")
+    success_url = reverse_lazy("paciente-list")
 
 class PacienteSearch(LoginRequiredMixin, ListView):
     def get_queryset(self):
@@ -57,3 +58,5 @@ class ProfileUpdate(UpdateView):
     model = UserAdmin
     fields = ['username']
     success_url = reverse_lazy("panel-login")
+
+

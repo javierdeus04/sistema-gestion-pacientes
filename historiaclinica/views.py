@@ -23,10 +23,6 @@ class CreateRegistro(LoginRequiredMixin, CreateView):
 class DetailRegistro(LoginRequiredMixin, DetailView):
     model=Registro
 
-@login_required
-def hc_search(request):
-    return render(request, 'historiaclinica/hc-search.html')
-
 class SearchRegistroByFirma(LoginRequiredMixin, ListView):
     def get_queryset(self):
         registro_firma = self.request.GET.get('firma')

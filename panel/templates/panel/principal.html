@@ -9,7 +9,7 @@
         <meta name="author" content="" />
         <title>{{configuracion.titulo_tab}}</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="{% static 'coder/css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'panel/css/styles.css' %}" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -183,7 +183,16 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Pacientes
+                                Pacientes <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" 
+                                action="{% url 'paciente-search' %}" method="get">
+                                    {% csrf_token %}
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="Busqueda por nombre..." aria-label="Search for..."
+                                 aria-describedby="btnNavbarSearch" name="nombre"/>
+                               
+                                <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </form>
                             </div>
                             <div class="card-body">
                                 <a href="paciente-list">Mostrar lista</a>
