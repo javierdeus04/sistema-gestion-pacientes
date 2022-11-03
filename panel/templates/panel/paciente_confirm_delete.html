@@ -12,11 +12,11 @@
                                 Ficha de {{paciente.nombre}}
                             </div>
                             <div class="card-body">
-                                ¿Está seguro de eliminar la ficha del paciente {{paciente.nombre}} {{paciente.apellido}}? 
+                                ¿Está seguro de eliminar la ficha del paciente <b>{{paciente.nombre}} {{paciente.apellido}}</b>? 
                                     <form method="post">
                                         {% csrf_token %}
                                         {{form}}
-                                        <br><input type="submit" value="Confirmar">
+                                        <br><input class="btn btn-primary" type="submit" value="Confirmar">
                                     </form>
                                 <br>
 

@@ -81,19 +81,20 @@
                                
                                 <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
                             </div>
-                        </form><a href='/principal/paciente-list'>Ver todos</a>
+                        </form> <a href='/principal/paciente-list'>Ver todos</a>
                        
                        
                          {% for paciente in object_list %}
                                 <ul>
-                                    <br><li> {{paciente}}<br>                                        
-                                            <a href='/principal/paciente-ficha/{{paciente.pk}}'>Ver ficha</a>
-                                            <a href='/principal/paciente-delete/{{paciente.pk}}'>Eliminar</a></li>                                           
+                                    <br><li> {{paciente}} 
+                                        <a href='/principal/paciente-ficha/{{paciente.pk}}'><button class="btn btn-primary" type="submit" >Ver ficha</button></a>
+                                        <a href='/principal/paciente-delete/{{paciente.pk}}'><button class="btn btn-secondary" type="submit" >Eliminar</button></a>                                      
+                                        </li>                                           
                                     
                                 </ul>
                                 {% endfor %}
 
-                                <a href="/principal">Ocultar lista<a>
+                                <br><a href="/principal">Ocultar lista<a>
                                     <div class="pagination">
                                         <span class="step-links">
                                             {% if page_obj.has_previous %}

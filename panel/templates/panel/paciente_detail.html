@@ -9,22 +9,23 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Ficha de {{paciente.nombre}}
+                                Ficha de <b>{{paciente.nombre}}</b>
                             </div>
                             <div class="card-body">
-                                <li>Nombre completo: {{object.nombre}} {{object.apellido}}</li>
-                                <li>Fecha de nacimiento: {{object.fecha_de_nacimiento}}</li>
-                                <li>CI: {{object.numero_CI}}</li>
-                                <li>Numero de contacto: {{object.numero_contacto}}</li>
-                                <li>Motivo de ultima consulta: {{object.motivo_consulta}}</li>
+                                <li><b>Nombre completo:</b> {{object.nombre}} {{object.apellido}}</li>
+                                <li><b>Fecha de nacimiento:</b> {{object.fecha_de_nacimiento}}</li>
+                                <li><b>C.I.:</b> {{object.numero_CI}}</li>
+                                <li><b>Numero de contacto:</b> {{object.numero_contacto}}</li>
+                                <li><b>Motivo de ultima consulta:</b> {{object.motivo_consulta}}</li>
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <li><b><a href="/hc-panel/hc-create">Nuevo registro</a></li></b>
-                                    <li><b><a href="/principal/paciente-update/{{paciente.pk}}">Actualizar datos</a></b></li>
-                                    <li><b><a href="/principal/paciente-delete/{{paciente.pk}}">Eliminar</a></b></li>
+                                    <a href="/hc-panel/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
+                                    <a href="/principal/paciente-update/{{paciente.pk}}"><button class="btn btn-primary" type="submit" >Actualizar datos</button></a>
+                                    <a href="/principal/paciente-delete/{{paciente.pk}}"><button class="btn btn-primary" type="submit" >Eliminar</button></a>
+                                    <a href="javascript:history.back()"><button class="btn btn-secondary" type="submit" >Atras</button></a>                                  
 
-                                <br><a href="javascript:history.back()"> Volver Atrás</a>
+                                
                             </div>
 
                             <div class="card-header">
@@ -35,10 +36,9 @@
 
                              
                                 {% for paciente in paciente.registros.all %}
-                                <li>{{paciente.pk}} - {{paciente.fecha}} - {{paciente.resumen}}
-                                     <a href="/hc-panel/hc-detail/{{paciente.pk}}">Ver mas</a></li>
+                                <li><b>{{paciente.fecha}}:</b> {{paciente.resumen}}
+                                     <a href="/hc-panel/hc-detail/{{paciente.pk}}">Ver detalle</a></li>
                                 {% endfor %}
-
-                                    
+                                                                    
           
 {% endblock %}

@@ -34,7 +34,7 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #0d6efd;
-  --bs-secondary: #6c757d;
+  --bs-secondary: #7d6c6c;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
@@ -3081,7 +3081,7 @@ textarea.form-control-lg {
 }
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5c636a;
+  background-color: #6a5c5c;
   border-color: #565e64;
 }
 .btn-check:focus + .btn-secondary, .btn-secondary:focus {

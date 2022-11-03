@@ -14,11 +14,16 @@ from panel.models import Configuracion, Paciente
 def principal(request):
     configuracion = Configuracion.objects.first()    
     return render(request, 'panel/principal.html', {'configuracion': configuracion})
+    
 
 class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
     ordering = ['nombre']
     paginate_by = 10
+
+    def config(request):
+        configuracion = Configuracion.objects.first()
+        render(request, 'panel/paciente_list.html', {'configuracion': configuracion})
 
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente

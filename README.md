@@ -1,3 +1,4 @@
+# Sistema de gestion de pacientes
 Versión desarrollada en Python 3.10.6.
 
 Esta aplicación permite manejar una base de datos con las siguientes funciones:

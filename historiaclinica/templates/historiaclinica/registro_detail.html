@@ -8,22 +8,21 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Ficha de {{registro.paciente.nombre}}
+                                Ficha de <b>{{registro.paciente.nombre}}</b>
                             </div>
                             <div class="card-body">
-                                <li>Nombre completo: {{registro.paciente.nombre}} {{registro.paciente.apellido}}</li>
-                                <li>Fecha de nacimiento: {{registro.paciente.fecha_de_nacimiento}}</li>
-                                <li>CI: {{registro.paciente.numero_CI}}</li>
-                                <li>Numero de contacto: {{registro.paciente.numero_contacto}}</li>
-                                <li>Motivo de ultima consulta: {{registro.paciente.motivo_consulta}}</li>
+                                <li><b>Nombre completo:</b> {{registro.paciente.nombre}} {{registro.paciente.apellido}}</li>
+                                <li><b>Fecha de nacimiento:</b> {{registro.paciente.fecha_de_nacimiento}}</li>
+                                <li><b>C.I.:</b> {{registro.paciente.numero_CI}}</li>
+                                <li><b>Numero de contacto:</b> {{registro.paciente.numero_contacto}}</li>
+                                <li><b>Motivo de ultima consulta:</b> {{registro.paciente.motivo_consulta}}</li>
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <li><b><a href="/hc-panel/hc-create">Nuevo registro</a></li></b>
-                                    <li><b><a href="/principal/paciente-update/{{registro.paciente.pk}}">Actualizar datos</a></b></li>
-                                    <li><b><a href="/principal/paciente-delete/{{registro.paciente.pk}}">Eliminar</a></b></li>
-
-                                <br><a href="javascript:history.back()"> Volver Atrás</a>
+                                    <a href="/hc-panel/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
+                                    <a href="/principal/paciente-update/{{registro.paciente.pk}}"><button class="btn btn-primary" type="submit" >Actualizar datos</button></a>
+                                    <a href="/principal/paciente-delete/{{registro.paciente.pk}}"><button class="btn btn-primary" type="submit" >Eliminar</button></a>
+                                    <a href="javascript:history.back()"><button class="btn btn-secondary" type="submit" >Atras</button></a>
                             </div>
 
                             <div class="card-header">

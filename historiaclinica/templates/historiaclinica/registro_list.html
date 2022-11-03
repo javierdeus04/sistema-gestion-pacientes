@@ -39,18 +39,19 @@
                                
                                 <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
                             </div>
-                            </form>
+                            </form> <a href='/hc-panel/hc-list'>Ver todos</a>
                                 </div>
                                 
                                 <div class="card-body">
                                     
                                     
                                     <ul>
+                                        
                                         {% for registro in object_list %}
                                         <li>{{registro}}
-                                                <a href="/hc-panel/hc-detail/{{registro.pk}}">Detalles</a>&nbsp;&nbsp;&nbsp;<a href="/hc-panel/hc-create">Nuevo registro</a>
-                                        
-                                            </li>
+                                            <a href="/hc-panel/hc-detail/{{registro.pk}}"><button class="btn btn-primary" type="submit" >Ver detalle</button></a> 
+                                                                                    
+                                            </li><br>
                                         {% endfor %}
                                         </ul>
                             
