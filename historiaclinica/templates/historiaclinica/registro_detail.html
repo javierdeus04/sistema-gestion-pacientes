@@ -8,30 +8,34 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Ficha de {{paciente.nombre}}
+                                Ficha de {{registro.paciente.nombre}}
                             </div>
                             <div class="card-body">
-                                <li>Nombre completo: {{object.nombre}} {{object.apellido}}</li>
-                                <li>Fecha de nacimiento: {{object.fecha_de_nacimiento}}</li>
-                                <li>CI: {{object.numero_CI}}</li>
-                                <li>Numero de contacto: {{object.numero_contacto}}</li>
-                                <li>Motivo de ultima consulta: {{object.motivo_consulta}}</li>
+                                <li>Nombre completo: {{registro.paciente.nombre}} {{registro.paciente.apellido}}</li>
+                                <li>Fecha de nacimiento: {{registro.paciente.fecha_de_nacimiento}}</li>
+                                <li>CI: {{registro.paciente.numero_CI}}</li>
+                                <li>Numero de contacto: {{registro.paciente.numero_contacto}}</li>
+                                <li>Motivo de ultima consulta: {{registro.paciente.motivo_consulta}}</li>
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <li><b><a href="/principal/paciente-update/{{paciente.pk}}">Actualizar datos</a></b></li>
-                                    <li><b><a href="/principal/paciente-delete/{{paciente.pk}}">Eliminar</a></b></li>
+                                    <li><b><a href="/hc-panel/hc-create">Nuevo registro</a></li></b>
+                                    <li><b><a href="/principal/paciente-update/{{registro.paciente.pk}}">Actualizar datos</a></b></li>
+                                    <li><b><a href="/principal/paciente-delete/{{registro.paciente.pk}}">Eliminar</a></b></li>
 
                                 <br><a href="javascript:history.back()"> Volver Atrás</a>
                             </div>
 
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Sesion del {{registro.fecha}}
+                                Sesion del {{registro.fecha}} <a href="/principal/paciente-ficha/{{registro.paciente.pk}}">Ver todas</a>
                             </div>
                             <div class="card-body">
 
                                 {{object.contenido}}
+                                {% if object.image %} 
+                                <br><img height="255" src="{{object.image.url}}"/>
+                                {% endif %}
                                 <br><br><b>Responsable: {{object.firma}}</b>
                                 
                             </div>

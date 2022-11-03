@@ -5,9 +5,9 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
 
-
+from historiaclinica.models import Registro
 from panel.models import Configuracion, Paciente
 
 @login_required
@@ -55,8 +55,13 @@ class UsuarioSignUp(CreateView):
     template_name = "panel/signup.html"
 
 class ProfileUpdate(UpdateView):
-    model = UserAdmin
+    model = User
     fields = ['username']
     success_url = reverse_lazy("panel-login")
+
+
+
+
+    
 
 

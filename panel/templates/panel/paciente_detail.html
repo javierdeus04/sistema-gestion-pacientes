@@ -20,6 +20,7 @@
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
+                                    <li><b><a href="/hc-panel/hc-create">Nuevo registro</a></li></b>
                                     <li><b><a href="/principal/paciente-update/{{paciente.pk}}">Actualizar datos</a></b></li>
                                     <li><b><a href="/principal/paciente-delete/{{paciente.pk}}">Eliminar</a></b></li>
 
@@ -28,10 +29,16 @@
 
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Historial de sesiones
+                                Historial de sesiones 
                             </div>
                             <div class="card-body">
-                                
-                            </div>           
+
+                             
+                                {% for paciente in paciente.registros.all %}
+                                <li>{{paciente.pk}} - {{paciente.fecha}} - {{paciente.resumen}}
+                                     <a href="/hc-panel/hc-detail/{{paciente.pk}}">Ver mas</a></li>
+                                {% endfor %}
+
+                                    
           
 {% endblock %}

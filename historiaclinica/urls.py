@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from historiaclinica.views import CreateRegistro, hc_panel, ListRegistro, DetailRegistro, SearchRegistroByFirma
+from historiaclinica.views import CreateRegistro, hc_panel, ListRegistro, DetailRegistro, SearchRegistroByFirma, paraclinica
 
 urlpatterns = [
     path('', hc_panel, name='hc-panel'),
+    path('paraclinica', paraclinica, name='paraclinica'),
     path('hc-list', ListRegistro.as_view(), name='hc-list'),
     path('hc-create', CreateRegistro.as_view(), name='hc-create'),
     path('hc-detail/<int:pk>', DetailRegistro.as_view(), name='hc-detail'),

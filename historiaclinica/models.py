@@ -4,7 +4,6 @@ from wsgiref.handlers import format_date_time
 from django.db import models
 from psycopg2 import DATETIME
 from panel.models import Paciente
-from django.contrib.auth.admin import UserAdmin
 
 
 class Registro(models.Model):
@@ -12,9 +11,10 @@ class Registro(models.Model):
     resumen = models.CharField(max_length=30)
     contenido = models.TextField(max_length=3000, null=True, blank=True)
     firma = models.CharField(max_length=10)
-    image = models.ImageField(upload_to="logos", null=True, blank=True)
+    image = models.ImageField(upload_to="paraclinica", null=True, blank=True)
+    paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, null=False, blank=False, related_name='registros')
 
     def __str__(self):
-        return f"Nombre: - Resumen sesion: {self.resumen} - {self.fecha}"
+        return f"Paciente: {self.paciente.nombre} - Resumen sesion: {self.resumen} - {self.fecha} - Responsable: {self.firma}"
 
 

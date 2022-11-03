@@ -10,6 +10,10 @@ from historiaclinica.models import Registro
 def hc_panel(request):
     return render(request, 'historiaclinica/hc-panel.html')
 
+@login_required
+def paraclinica(request):
+    return render(request, 'historiaclinica/paraclinica.html')
+
 class ListRegistro(LoginRequiredMixin, ListView):
     model=Registro
     ordering = ['-fecha']
@@ -17,7 +21,7 @@ class ListRegistro(LoginRequiredMixin, ListView):
 
 class CreateRegistro(LoginRequiredMixin, CreateView):
     model=Registro
-    fields = ['resumen', 'contenido', 'firma', 'image']
+    fields = ['paciente', 'resumen', 'contenido', 'firma', 'image']
     success_url = reverse_lazy("hc-list")
 
 class DetailRegistro(LoginRequiredMixin, DetailView):
