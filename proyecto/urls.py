@@ -23,7 +23,8 @@ from panel.views import ProfileUpdate
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('principal/', include('panel.urls')),
-    path('hc-panel/', include('historiaclinica.urls')),    
+    path('hc-panel/', include('historiaclinica.urls')),
+    path('web-principal/', include('web.urls'))    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

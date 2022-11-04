@@ -26,5 +26,5 @@ class Paciente(models.Model):
 
 
     def __str__(self):
-          return f'CI:{self.numero_CI} - {self.nombre} {self.apellido}'
+          return f'{self.numero_CI} - {self.nombre} {self.apellido}'
 

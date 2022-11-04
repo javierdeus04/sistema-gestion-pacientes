@@ -33,12 +33,24 @@
                                 Historial de sesiones 
                             </div>
                             <div class="card-body">
+                                <table class="table">
+                                    <tr>
+                                        <th>Fecha</th>
+                                        <th>Resumen</th>
+                                        <th>Accion</th>
+                                                                                
+                                    </tr>
 
                              
                                 {% for paciente in paciente.registros.all %}
-                                <li><b>{{paciente.fecha}}:</b> {{paciente.resumen}}
-                                     <a href="/hc-panel/hc-detail/{{paciente.pk}}">Ver detalle</a></li>
+                                <tr>
+                                <td><li><b>{{paciente.fecha}}</b></td>
+                                <td> {{paciente.resumen}}</td>
+                                <td><a href="/hc-panel/hc-detail/{{paciente.pk}}">Ver detalle</a></li></td>
+                                </tr>
+
                                 {% endfor %}
+                            </table> 
                                                                     
           
 {% endblock %}

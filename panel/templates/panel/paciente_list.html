@@ -83,16 +83,28 @@
                             </div>
                         </form> <a href='/principal/paciente-list'>Ver todos</a>
                        
-                       
+                        <table class="table">
+                            <tr>
+                                <th>C.I.</th>
+                               
+                                <th>Nombre</th>
+
+                                <th>Acciones</th>
+                                                                        
+                            </tr>
                          {% for paciente in object_list %}
+                         <tr>
                                 <ul>
-                                    <br><li> {{paciente}} 
-                                        <a href='/principal/paciente-ficha/{{paciente.pk}}'><button class="btn btn-primary" type="submit" >Ver ficha</button></a>
-                                        <a href='/principal/paciente-delete/{{paciente.pk}}'><button class="btn btn-secondary" type="submit" >Eliminar</button></a>                                      
-                                        </li>                                           
+                                    <td> <br><li> {{paciente.numero_CI}} </td>
+                                        <td> <br><li> {{paciente.nombre}} {{paciente.apellido}}</td>
+                                        <td><a href='/principal/paciente-ficha/{{paciente.pk}}'><button class="btn btn-primary" type="submit" >Ver ficha</button></a>
+                                        <a href='/principal/paciente-delete/{{paciente.pk}}'><button class="btn btn-secondary" type="submit" >Eliminar</button></a></td>                                      
+                                        </li>
+                                    </tr>                                           
                                     
                                 </ul>
                                 {% endfor %}
+                            </table> 
 
                                 <br><a href="/principal">Ocultar lista<a>
                                     <div class="pagination">

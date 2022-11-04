@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'panel.apps.PanelConfig',
     'historiaclinica.apps.HistoriaclinicaConfig',
+    'web.apps.WebConfig',
 ]
 
 MIDDLEWARE = [
