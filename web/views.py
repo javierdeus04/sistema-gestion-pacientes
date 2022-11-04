@@ -4,10 +4,10 @@ from django.views import View
 
 
 def web_principal(request):
-    return render(request, 'web/web_principal.html')
+    return render(request, 'web/solicitudpaciente_form.html')
 
 class SolicitudCreate(View):
-    template_name = "web-principal.html"
+    template_name = "web/solicitudpaciente_form.html"
     form_class = SolicitudForm
     initial = {"nombre_y_apellido":"", "fecha_nacimiento":""}
     

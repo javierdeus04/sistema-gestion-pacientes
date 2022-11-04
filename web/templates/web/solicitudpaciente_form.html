@@ -1,7 +1,10 @@
 {% extends "web/web_principal.html" %}
 {% block content %}
 
-
-
+<class style="color:#ffbf00"></p><form action="/personas/cargar" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Enviar">
+</form></class>
 
 {% endblock %}
