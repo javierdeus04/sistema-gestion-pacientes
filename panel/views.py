@@ -20,10 +20,9 @@ class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
     ordering = ['nombre']
     paginate_by = 10
+    configuracion = Configuracion.objects.first()
 
-    def config(request):
-        configuracion = Configuracion.objects.first()
-        render(request, 'panel/paciente_list.html', {'configuracion': configuracion})
+    
 
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
@@ -60,8 +59,9 @@ class UsuarioSignUp(CreateView):
     template_name = "panel/signup.html"
 
 class ProfileUpdate(UpdateView):
-    model = User
-    fields = ['username']
+    model = User   
+    fields = ['username', 'first_name', 'last_name', 'email', 'password']
+    template_name = "panel/signup.html"
     success_url = reverse_lazy("panel-login")
 
 

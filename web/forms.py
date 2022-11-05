@@ -9,7 +9,7 @@ class SolicitudForm(forms.ModelForm):
 
     class Meta:
         model = SolicitudPaciente        
-        fields = ['nombre_y_apellido', 'fecha_nacimiento', 'numero_CI', 'numero_contacto', 'motivo_consulta']
+        fields = ['nombre', 'apellido', 'fecha_nacimiento', 'numero_CI', 'numero_contacto', 'motivo_consulta']
 
         
 

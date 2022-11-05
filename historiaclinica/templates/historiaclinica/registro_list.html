@@ -9,7 +9,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Registros</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="/hc-panel">Ocultar</a>
+                                        <a class="small text-white stretched-link" href="/principal/hc-panel">Ocultar</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -18,7 +18,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Nuevo registro</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="/hc-panel/hc-create">Agregar</a>
+                                        <a class="small text-white stretched-link" href="/principal/hc-panel/hc-create">Agregar</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -39,21 +39,37 @@
                                
                                 <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><i class="fas fa-search"></i></button>
                             </div>
-                            </form> <a href='/hc-panel/hc-list'>Ver todos</a>
+                            </form> <a href='/principal/hc-panel/hc-list'>Ver todos</a>
                                 </div>
+                                <table class="table">
+                                    <tr>                                    
+
+                                        <th>Fecha</th>
+                                        <th>Paciente</th>
+                                        <th>Tratamiento</th>
+                                        <th>Firma</th>
+                                        <th>Accion</th>
+
+                                    </tr>                                    
                                 
-                                <div class="card-body">
-                                    
+                                <div class="card-body">                                    
                                     
                                     <ul>
                                         
                                         {% for registro in object_list %}
-                                        <li>{{registro}}
-                                            <a href="/hc-panel/hc-detail/{{registro.pk}}"><button class="btn btn-primary" type="submit" >Ver detalle</button></a> 
-                                                                                    
-                                            </li><br>
+                                        <tr>
+                                            <td><li>{{registro.fecha}}</li></td>
+                                            <td>{{registro.paciente.nombre}} {{registro.paciente.apellido}}</td>
+                                            <td>{{registro.resumen}}</td>
+                                            <td>{{registro.firma}}</td>
+                                            <td><a href="/principal/hc-panel/hc-detail/{{registro.pk}}"><button class="btn btn-primary" type="submit" >Ver detalle</button></a></td> 
+                                        </tr>
                                         {% endfor %}
-                                        </ul>
+                                    
+                                    </ul>
+                                </table>
+
+                                </div>
                             
                                 </div>
                             

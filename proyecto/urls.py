@@ -23,8 +23,7 @@ from web.views import SolicitudCreate
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('principal/', include('panel.urls')),
-    path('hc-panel/', include('historiaclinica.urls')),
-    path('nombre-de-clinica/', SolicitudCreate.as_view(), name='clinica-nombre')    
+    path('nombre-de-clinica/', include('web.urls'), name='clinica-nombre')    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

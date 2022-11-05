@@ -21,7 +21,7 @@ class ListRegistro(LoginRequiredMixin, ListView):
 
 class CreateRegistro(LoginRequiredMixin, CreateView):
     model=Registro
-    fields = ['paciente', 'resumen', 'contenido', 'firma', 'image']
+    fields = ['paciente', 'resumen', 'contenido', 'image', 'firma']
     success_url = reverse_lazy("hc-list")
 
 class DetailRegistro(LoginRequiredMixin, DetailView):

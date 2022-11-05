@@ -15,7 +15,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/principal">Nombre Clinica</a> 
+            <a href="/nombre-de-clinica" class="navbar-brand ps-3" href="/principal">{{configuracion.nombre_clinica}}</a> 
             <!--Navbar Search-->
           
            <!-- Navbar-->
@@ -23,10 +23,12 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        {% if user.is_staff %}
                         <li><a class="dropdown-item" href="/admin/panel/configuracion/">Configuracion</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="/principal/logout">Cerrar Sesion</a></li>
+                        {% else %}
+                        <li><a class="dropdown-item" href="/principal/logout">Cerrar Sesion</a></li>
+                        {% endif %}
                     </ul>
                 </li>
             </ul>
@@ -41,18 +43,29 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Panel principal
                             </a>
+                            {% if user.is_staff %}
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
-                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>                                
                                 Usuarios
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/auth/user/">Ver</a>
-                                    <a class="nav-link" href="/principal/signup">Agregar</a>
+                                    <a class="nav-link" href="/admin/auth/user/">Modificar</a>
+                                    <a class="nav-link" href="/principal/signup">Registrar</a>
                                     <a class="nav-link" href="/principal/user-profile/{{user.pk}}">Actualizar datos</a>
-                                    <a class="nav-link" href="layout-sidenav-light.html">Eliminar</a>
                                 </nav>
+                                {% else %}
+                                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>                                
+                                    Usuario
+                                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                </a>
+                                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                    <nav class="sb-sidenav-menu-nested nav">
+                                        <a class="nav-link" href="/principal/user-profile/{{user.pk}}">Actualizar datos</a>
+                                    </nav>
+                                {% endif %}
                             </div>
                             <!--<a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
@@ -99,14 +112,14 @@
                     
                    <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Usuario
+                        {{user.username}}
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Nombre del usuario</h1>                       
+                        <h1 class="mt-4">{{user.first_name}}</h1>                       
                         
 
                     {% block content %}{% endblock %}               

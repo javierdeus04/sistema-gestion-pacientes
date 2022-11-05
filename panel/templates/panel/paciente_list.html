@@ -23,7 +23,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">Historia clinica</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="/hc-panel">Nuevo registro / Buscar</a>
+                                        <a class="small text-white stretched-link" href="/principal/hc-panel">Nuevo registro / Buscar</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -104,9 +104,13 @@
                                     
                                 </ul>
                                 {% endfor %}
-                            </table> 
+                            </table>  
 
                                 <br><a href="/principal">Ocultar lista<a>
+
+                                
+
+                               
                                     <div class="pagination">
                                         <span class="step-links">
                                             {% if page_obj.has_previous %}
@@ -123,10 +127,12 @@
                                                 <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
                                             {% endif %}
                                         </span>
+                                        
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    
                 
                 
                 {% endblock %}
