@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from web.forms import SolicitudForm
 from django.views import View
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from web.models import SolicitudPaciente
 
 
 def web_principal(request):
@@ -24,4 +27,12 @@ class SolicitudCreate(View):
             form = self.form_class(initial=self.initial)
         
         return render(request, template_name, {"form": form})
+
+
+class SolicitudList(LoginRequiredMixin, ListView):
+    model = SolicitudPaciente
+    ordering = ['nombre']
+    paginate_by = 10    
+
+
 

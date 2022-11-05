@@ -32,6 +32,7 @@
                 <class style="color:#ffbf00"></p><form action="/nombre-de-clinica/solicitudes" method="post">
                     {% csrf_token %}
                    <ul>
+                    
                     <li>Nombre</li>
                     {{form.nombre}}
                     <li>Apellido</li>
@@ -44,6 +45,7 @@
                     {{form.numero_contacto}}
                     <li>Motivo de consulta</li> 
                     {{form.motivo_consulta}}
+                    
                     <br><h3 class="section-subheading text-muted">Sea lo mas detallado y especifico posible</h3>
                     </ul> 
                     <CENTER><input type="submit" value="Enviar"></CENTER>

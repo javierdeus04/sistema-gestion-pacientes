@@ -19,10 +19,7 @@ def principal(request):
 class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
     ordering = ['nombre']
-    paginate_by = 10
-    configuracion = Configuracion.objects.first()
-
-    
+    paginate_by = 10    
 
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
