@@ -1,0 +1,27 @@
+{% extends "panel/panel_base.html" %}
+{% block content %}
+
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
+                            <li class="breadcrumb-item active">Solicitudes de consulta</li>
+                        </ol>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Solicitud de {{object.nombre}}
+                            </div>
+                            <div class="card-body">
+                                ¿Está seguro de eliminar la solicitud de <b>{{object.nombre}} {{object.apellido}}</b>? 
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        {{form}}
+                                        <br><input class="btn btn-primary" type="submit" value="Confirmar">
+                                    </form>
+                                <br>
+
+                                                              
+                                <a href="javascript:history.back()"> Volver Atrás</a>
+                            </div>
+
+{% endblock %}

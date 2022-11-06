@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from web.forms import SolicitudForm
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from web.models import SolicitudPaciente
+from django.urls import reverse_lazy
+
 
 
 def web_principal(request):
@@ -28,11 +30,10 @@ class SolicitudCreate(View):
         
         return render(request, template_name, {"form": form})
 
-
-class SolicitudList(LoginRequiredMixin, ListView):
+class SolicitudDetail(LoginRequiredMixin, DetailView):
     model = SolicitudPaciente
-    ordering = ['nombre']
-    paginate_by = 10    
 
-
+class SolicitudDelete(LoginRequiredMixin, DeleteView):
+    model = SolicitudPaciente
+    success_url = reverse_lazy("index")
 

@@ -13,6 +13,8 @@ class Registro(models.Model):
     resumen = models.CharField(max_length=30)
     contenido = models.TextField(max_length=3000, null=True, blank=True)    
     image = models.ImageField(upload_to="paraclinica", null=True, blank=True)
+    image_dos = models.ImageField(upload_to="paraclinica", null=True, blank=True)
+    image_tres = models.ImageField(upload_to="paraclinica", null=True, blank=True)
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE, null=False, blank=False, related_name='registros')
 
     def __str__(self):

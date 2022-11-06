@@ -31,9 +31,13 @@
                             </div>
                             <div class="card-body">
 
-                                {{object.contenido}}
-                                {% if object.image %} 
-                                <br><img height="255" src="{{object.image.url}}"/>
+                                <b>Registro:</b>
+                                <br>{{object.contenido}}
+                                {% if object.image %}
+                                <br><b>Adjuntos:</b> 
+                                <a href="{{object.image.url}}"><br><img height="255" src="{{object.image.url}}"/></a>
+                                <a href="{{object.image_dos.url}}"><img height="255" src="{{object.image_dos.url}}"/></a>
+                                <a href="{{object.image_tres.url}}"><img height="255" src="{{object.image_tres.url}}"/></a>
                                 {% endif %}
                                 <br><br><b>Responsable: {{object.firma}}</b>
                                 

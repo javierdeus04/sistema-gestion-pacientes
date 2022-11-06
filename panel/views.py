@@ -6,21 +6,28 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
+from web.models import SolicitudPaciente
+from django.core.paginator import Paginator
 
 from historiaclinica.models import Registro
 from panel.models import Configuracion, Paciente
 
 @login_required
 def principal(request):
-    configuracion = Configuracion.objects.first()    
-    return render(request, 'panel/principal.html', {'configuracion': configuracion})
+    configuracion = Configuracion.objects.first()
+    solicitud_list = SolicitudPaciente.objects.all()
+    paginator = Paginator(solicitud_list, 5)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
+    return render(request, 'panel/principal.html', {'configuracion': configuracion, "solicitud_list": solicitud_list,
+                             'page_obj': page_obj})
 
 class PacienteList(LoginRequiredMixin, ListView):
     model = Paciente
     ordering = ['nombre']
-    paginate_by = 10    
-
+    paginate_by = 10
+        
 class PacienteDetail(LoginRequiredMixin, DetailView):
     model = Paciente
 
@@ -42,7 +49,7 @@ class PacienteSearch(LoginRequiredMixin, ListView):
     def get_queryset(self):
         paciente_nombre = self.request.GET.get('nombre')
         return Paciente.objects.filter(nombre__icontains=paciente_nombre)
-    
+
 class UsuarioLogin(LoginView):
     template_name = 'panel/login.html'
     next_page = reverse_lazy("index")

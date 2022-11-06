@@ -1,0 +1,34 @@
+{% extends "panel/panel_base.html" %}
+{% block content %}
+
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active"><a href="/principal">Panel principal</a></li>
+                            <li class="breadcrumb-item active">Solicitudes de consulta</li>
+                        </ol>
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Solicitud de <b>{{object.nombre}}</b>, {{object.fecha_creacion}}
+                            </div>
+                            <div class="card-body">
+                                <ul>
+                                    <li><b>Nombre:</b> {{object.nombre}} {{object.apellido}}</li>
+                                    <li><b>Fecha de nacimiento:</b> {{object.fecha_nacimiento}}</li>
+                                    <li><b>Numero C.I.:</b> {{object.numero_CI}}</li>
+                                    <li><b>Numero de contacto:</b> {{object.numero_contacto}}</li>
+                                    <li><b>Motivo de consulta:</b> <br>{{object.motivo_consulta}}</li>
+
+                                </ul>
+
+                                <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
+                                    <a href="/principal/paciente-create"><button class="btn btn-primary" type="submit" >Crear ficha</button></a>
+                                    <a href=""><button class="btn btn-primary" type="submit" >Agendar</button></a>
+                                    <a href="/principal/solicitud-delete/{{object.pk}}"><button class="btn btn-primary" type="submit" >Eliminar</button></a>
+                                    <a href="javascript:history.back()"><button class="btn btn-secondary" type="submit" >Atras</button></a>                                  
+
+                                
+                            </div> 
+                                                                    
+          
+{% endblock %}

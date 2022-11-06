@@ -15,7 +15,13 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a href="/nombre-de-clinica" class="navbar-brand ps-3" href="/principal">{{configuracion.nombre_clinica}}</a> 
+            <a href="/nombre-de-clinica" class="navbar-brand ps-3" href="/principal">{{configuracion.nombre_clinica}}</a>
+            {% if configuracion.logo %}
+            <img height="40" src="{{configuracion.logo.url}}">
+            {% endif %}
+
+
+            
             <!--Navbar Search-->
           
            <!-- Navbar-->
@@ -24,6 +30,7 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         {% if user.is_staff %}
+                        <li><a class="dropdown-item" href="/admin">Administracion</a></li>
                         <li><a class="dropdown-item" href="/admin/panel/configuracion/">Configuracion</a></li>
                         <li><a class="dropdown-item" href="/principal/logout">Cerrar Sesion</a></li>
                         {% else %}
@@ -51,7 +58,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="/admin/auth/user/">Modificar</a>
+                                    <a class="nav-link" href="/admin/auth/user/">Administrar</a>
                                     <a class="nav-link" href="/principal/signup">Registrar</a>
                                     <a class="nav-link" href="/principal/user-profile/{{user.pk}}">Actualizar datos</a>
                                 </nav>
