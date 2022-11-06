@@ -42,4 +42,4 @@ Quién no cuente con usuario registrado será redirigido a la web principal, que
 ## Recorriendo la app:
 - Ingresar a localhost:8000/admin para acceder al sitio de administrador de django
 - Ingresar a localhost:8000/principal para acceder a la página principal de gestión de pacientes
-- Ingresar a localhost:8000/nombre-de-clinica para acceder a la web de la clínica
+- Ingresar a localhost:8000/nombre-de-clinica para acceder a la web general
