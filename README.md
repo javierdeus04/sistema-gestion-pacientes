@@ -6,7 +6,7 @@ Esta aplicación permite manejar una base de datos con las siguientes funciones 
 - Visualización de los perfiles en forma de lista por orden alfabético.
 - Visualización de cada perfil de paciente en detalle.
 - Edición del perfil de paciente.
-- Eliminación del perfil de paciente (con la consecuente eliminación de los registros de sesión asociados)
+- Eliminación del perfil de paciente (con la consecuente eliminación de los registros de sesión asociados).
 - Búsqueda del perfil de paciente por su nombre.
 - Creación de registro por sesión de tratamiento, permitiendo adjuntar archivos en formato de imagen (paraclínica) en caso de ser requerido.
 - Visualización de los registros en forma de lista por orden de antiguedad (de más nuevo a más antiguo).
@@ -20,7 +20,7 @@ Para las siguientes funciones adicionales se requieren permisos de ¨superuser¨
 - Registro de nuevo usuario
 - Acceso al sitio administrativo de django (gestión de usuarios, carga de configuraciones de aspecto personalizadas, etc).
 
-Quién no cuente con usuario registrado será redirigido a la web principal, desde la cual se podrá:
+Quién no cuente con usuario registrado será redirigido a la web principal, que cuenta con las siguientes funciones:
 - Visualización de la información correspondiente a la empresa/emprendimiento.
 - Creación de formulario de solicitud de consulta.
 - Ingreso al login.
