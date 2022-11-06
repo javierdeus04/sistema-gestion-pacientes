@@ -23,7 +23,8 @@ Quién no cuente con usuario registrado será redirigido a la web principal, des
 
 ## Pasos para su instalación y funcionamiento:
 
-1° Clonar el proyecto desde GitHub: `git clone https://github.com/javierdeus04/sistema-gestion-pacientes' o descargar el archivo comprimido que contiene la carpeta del proyecto.
+1° Desde la terminal de comandos de sistema clonar el proyecto desde GitHub: `git clone https://github.com/javierdeus04/sistema-gestion-pacientes' o descargar el archivo comprimido que contiene la carpeta del proyecto.
+
 2° Desde la terminal de comandos de sistema (ubicados en la ruta correspondiente a la carpea del proyecto), ejecutar los siguientes acciones:
 - Instalación de django: `pip install django`
 - Instalación de WhiteNoise: `pip install whitenoise`
@@ -31,6 +32,7 @@ Quién no cuente con usuario registrado será redirigido a la web principal, des
 - Realizar las migraciones: `python manage.py migrate`
 - Correr el servidor: `python manage.py runserver`
 - Crear un usuario con los permisos necesarios: `python manage.py createsuperuser`
+
 3° En el navegador ir al localhost :8000/ para confirmar que la aplicación funciona correctamente.
 
 ## Recorriendo la app:
