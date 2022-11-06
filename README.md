@@ -11,9 +11,11 @@ Esta aplicación permite manejar, a quien tenga un usuario registrado, una base 
 - Visualización de los registros de todos los pacientes en forma de lista por orden de antiguedad (de mas nuevo a mas antiguo).
 - Visualización en detalle de cada registro.
 - Actualización de datos del usuario
+
 Para las siguientes funciones adicionales se requieren permisos de ¨superuser¨:
 - Registrar nuevos usuarios
 - Acceder al sitio administrativo de django, desde donde se podrá gestionar usuarios y cargar configuraciones de aspecto personalizadas.
+
 Quién no cuente con usuario registrado será redirigido a la web principal, desde la cual se podrá:
 - Leer la información correspondiente a la empresa/emprendimiento.
 - Crear un formulario de solicitud de consulta.
