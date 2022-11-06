@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, DayArchiveView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
 from web.models import SolicitudPaciente

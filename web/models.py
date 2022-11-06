@@ -8,6 +8,8 @@ class SolicitudPaciente(models.Model):
     fecha_nacimiento = models.DateField()
     numero_CI = models.IntegerField()
     numero_contacto = models.IntegerField()
+    disponibilidad_horaria_inicial = models.TimeField(null=True, blank=True)
+    disponibilidad_horaria_final = models.TimeField(null=True, blank=True)
     motivo_consulta = models.TextField(max_length=3000)
     
 

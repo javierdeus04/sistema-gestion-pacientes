@@ -10,10 +10,6 @@ from historiaclinica.models import Registro
 def hc_panel(request):
     return render(request, 'historiaclinica/hc-panel.html')
 
-@login_required
-def paraclinica(request):
-    return render(request, 'historiaclinica/paraclinica.html')
-
 class ListRegistro(LoginRequiredMixin, ListView):
     model=Registro
     ordering = ['-fecha']
