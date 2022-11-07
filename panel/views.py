@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView, DayArchiveView
+from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.admin import User
 from web.models import SolicitudPaciente
@@ -59,8 +59,8 @@ class UsuarioLogout(LogoutView):
 
 class UsuarioSignUp(CreateView):
     form_class = UserCreationForm
-    success_url = reverse_lazy("panel-login")
-    template_name = "panel/signup.html"
+    success_url = reverse_lazy("index")
+    template_name = "registration/signup.html"
 
 class ProfileUpdate(UpdateView):
     model = User   

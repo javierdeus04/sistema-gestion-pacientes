@@ -42,3 +42,6 @@ class SolicitudDelete(LoginRequiredMixin, DeleteView):
     model = SolicitudPaciente
     success_url = reverse_lazy("index")
 
+def about(request):
+    return render(request, 'web/about.html')
+

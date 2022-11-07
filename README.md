@@ -11,6 +11,7 @@ Esta aplicación permite manejar una base de datos con las siguientes funciones 
 - Creación de registro por sesión de tratamiento, permitiendo adjuntar archivos en formato de imagen (paraclínica) en caso de ser requerido.
 - Visualización de los registros en forma de lista por orden de antiguedad (de más nuevo a más antiguo).
 - Visualización de cada registro en detalle.
+- Búsqueda de registros por firma (usuario).
 - Visualización de las solicitudes de consulta en forma de lista por orden de antiguedad (de más antigua a más nueva).
 - Visualización de cada solicitud de consulta en detalle.
 - Eliminación de la solicitud de consulta.

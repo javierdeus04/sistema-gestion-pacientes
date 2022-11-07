@@ -11,7 +11,7 @@ class Configuracion(models.Model):
 
 
 class Paciente(models.Model):
-    nombre = models.CharField(max_length=10)
+    nombre = models.OneToOneField
     apellido = models.CharField(max_length=10)
     fecha_de_nacimiento = models.DateField()
     numero_CI = models.IntegerField(null=True, blank=True)

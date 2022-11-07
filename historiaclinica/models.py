@@ -9,7 +9,7 @@ from django.contrib.auth.admin import User
 
 class Registro(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
-    firma = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=False, blank=False, related_name='registros')
+    firma = models.ForeignKey(User, on_delete=models.DO_NOTHING, null=True, blank=True, related_name='registros')
     resumen = models.CharField(max_length=30)
     contenido = models.TextField(max_length=3000, null=True, blank=True)    
     image = models.ImageField(upload_to="paraclinica", null=True, blank=True)
