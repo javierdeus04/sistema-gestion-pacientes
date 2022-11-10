@@ -1,0 +1,114 @@
+{% extends "panel/principal.html" %}
+
+{% block content %}
+
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Panel principal</li>
+</ol>
+<div class="row">
+    
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">Pacientes</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/principal/paciente-list">Ver / Iniciar fichas</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">Historia clinica</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="/principal/hc-panel">Nuevo registro / Buscar</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">Calendario</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">Ver mas</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">Reservas</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#">Ver mas</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-xl-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-chart-area me-1"></i>
+                Solicitudes
+            </div>
+
+            <div class="card-body">
+                <div> 
+                    
+{% if object_list %}
+
+<table class="table">
+    <tr>
+        <th>Fecha creacion</th>
+       
+        <th>Nombre</th>
+
+        <th>Acciones</th>
+                                                
+    </tr>
+
+<ul>
+    {% for object in object_list %}
+    <tr>
+<ul>
+    <td><li> {{object.fecha_creacion}}</li></td>
+    <td> {{object.nombre}} {{object.apellido}}</td>
+    <td> <a href="/principal/solicitud-detalle/{{object.pk}}"><button class="btn btn-primary">Ver</button></a>
+        <a href="/principal/solicitud-delete/{{object.pk}}"><button class="btn btn-secondary">Eliminar</button></a> </td>
+</tr>
+</ul>
+    {% endfor %}    
+    </ul>
+
+</table>
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+    
+    
+</div>
+
+<a href="/principal">
+    OCULTAR</button></a>
+
+    {% else %}
+    <b>No hay solicitudes pendientes</b>
+    {% endif %}
+
+    
+
+
+{% endblock %}

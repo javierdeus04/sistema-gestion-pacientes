@@ -1,29 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Sistema Gestión de Pacientes</h1>
-    <h2>Proyecto final curso Python-Coderhouse</h2>
-    <br>
-    <p>
-        El presente trabajo pretende ser el puntapié inicial para el desarrollo de una aplicación que sea utilizable en la práctica 
-        por profesionales de la salud que desarrollen su actividad de forma autónoma y que normalmente no cuentan con este tipo 
-        de herramientas. Siendo parte de ese grupo se me ocurrió, de esta manera, ofrecer un sistema que facilite la gestión de la tarea,
-        centralizando toda la información en un solo lugar, de forma organizada y de fácil acceso. La practicidad de la aplicación perimitirá que pueda ser utilizada 
-        tanto por aquellas personas que trabajen de forma individual como por pequeños grupos de trabajo, facilitando ciertas tareas 
-        y permitiendo llevar un registro de la actividad. La idea es continuar desarrollando este proyecto más allá del curso para poder 
-        ir mejorando de forma continua su funcionamiento y agregando nuevas funcionalidades.         
-    </p>
-        <b>Javier Deus - 12/11/2022</b>
-    </p>
+{% extends "web/web_principal.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <a href="#page-top"><img height='40' src="{{configuracion.logo.url}}"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <b><li class="nav-item"><a class="nav-link" href="/web-principal/#services" style="color:#ff9d00">Servicios</a></li></b>
+                <b><li class="nav-item"><a class="nav-link" href="/web-principal/#about" style="color:#ffae00">Sobre nosotros</a></li></b>
+                <b><li class="nav-item"><a class="nav-link" href="/web-principal/#team" style="color:#ffae00">Equipo</a></li></b>
+                <b><li class="nav-item"><a class="nav-link" href="" style="color:#ffae00">Solicitudes</a></li></b>
+                {% if user.is_authenticated %}
+                <b><li class="nav-item"><a class="nav-link" href="/principal" style="color:#ffffff">Ingresar</a></li></b>
+                {% else %}
+                <b><li class="nav-item"><a class="nav-link" href="/principal/login" style="color:#ffffff">Ingresar</a></li></b>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+        <section class="page-section" id="contact">
+            
+            <div class="container">
+
+                <h1 style="color:#ff9d00">Sistema Gestión de Pacientes</h1>
+                <h2 style="color:#ff9d00">Proyecto final curso Python-Coderhouse</h2>
+                <br>
+                <p style="color:rgb(255, 255, 255)">
+                    El presente trabajo pretende ser el puntapié inicial para el desarrollo de una aplicación que sea utilizable en la
+                    práctica por profesionales de la salud que desarrollen su actividad de forma autónoma y que normalmente no cuenten
+                    con este tipo de herramienta. Siendo parte de ese grupo se me ocurrió, de esta manera, ofrecer un sistema que
+                    facilite la gestión de la tarea, centralizando toda la información en un solo lugar, de forma organizada y de fácil
+                    acceso. La practicidad de la aplicación permitirá que pueda ser utilizada tanto por aquellas personas que trabajen
+                    de forma individual como por grupos de trabajo, facilitando ciertas tareas y permitiendo llevar un registro
+                    de la actividad, lo cual en la practica cotidiana se hace muy difícil de hacer. La idea es poder seguir
+                    desarrollando este proyecto con las herramientas adquiridas en el curso e ir más allá del mismo
+                    para poder mejorar, agregar nuevas funcionalidades y optimizar de forma continua su funcionamiento.          
+                </p>
+                    <b style="color:#ff9d00">Javier Deus - 12/11/2022</b>
+                </p>
+            
+    
+
   
 
 
 
-</body>
-</html>
+{% endblock %}}

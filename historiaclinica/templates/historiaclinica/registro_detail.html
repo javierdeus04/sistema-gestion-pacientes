@@ -33,13 +33,18 @@
 
                                 <b>Registro:</b>
                                 <br>{{object.contenido}}
-                                {% if object.image %}
-                                <br><b>Adjuntos:</b> 
+                                
+                                {% if object.image %} 
+                                <br><b>Adjuntos:</b><br>
                                 <a href="{{object.image.url}}"><br><img height="255" src="{{object.image.url}}"/></a>
+                                {% endif %}
+                                {% if object.image_dos %} 
                                 <a href="{{object.image_dos.url}}"><img height="255" src="{{object.image_dos.url}}"/></a>
+                                {% endif %}
+                                {% if object.image_tres %} 
                                 <a href="{{object.image_tres.url}}"><img height="255" src="{{object.image_tres.url}}"/></a>
                                 {% endif %}
-                                <br><br><b>Responsable: {{object.firma}}</b>
+                                <br><br><b>Responsable: {{object.user}}</b>
                                 
                             </div>
                         </div>

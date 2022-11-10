@@ -3,3 +3,4 @@ from historiaclinica.models import Registro
 
 admin.site.register(Registro)
 
+

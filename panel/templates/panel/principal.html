@@ -24,7 +24,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
+                            <!-- <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Calendario</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
@@ -41,7 +41,7 @@
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row">
                             <div class="col-xl-6">
@@ -49,33 +49,14 @@
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
                                         Solicitudes
-
-                                       
-                                         <table class="table">
-                                            <tr>
-                                                <th>Fecha creacion</th>
-                                               
-                                                <th>Nombre</th>
-
-                                                <th>Acciones</th>
-                                                                                        
-                                            </tr>
-
-                                        <ul>
-                                            {% for solicitud in solicitud_list %}
-                                            <tr>
-                                        <ul>
-                                            <td><li> {{solicitud.fecha_creacion}}</li></td>
-                                            <td> {{solicitud.nombre}} {{solicitud.apellido}}</td>
-                                            <td> <a href="/principal/solicitud-detalle/{{solicitud.pk}}"><button class="btn btn-primary">Ver</button></a>
-                                                <a href="/principal/solicitud-delete/{{solicitud.pk}}"><button class="btn btn-secondary">Eliminar</button></a> </td>
-                                        </tr>
-                                        </ul>
-                                            {% endfor %}    
-                                            </ul>
-
-                                        </table>               
                                     </div>
+
+                                    <div class="card-body">
+                                        
+                                        <CENTER><a href="/principal/solicitud-list"><button class="btn btn-primary">
+                                            MOSTRAR</button></a></CENTER>
+                                        </div>
+                                </div>
 
                                     
 
@@ -84,8 +65,8 @@
                                     </div>
                                                                         
                                 </div>
-                            </div>
-                            <div class="col-xl-6">
+                            
+                            <!-- <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
@@ -93,7 +74,7 @@
                                     </div>
                                     <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         
                     </div>
