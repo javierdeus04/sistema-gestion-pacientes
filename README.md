@@ -43,4 +43,4 @@ Quién no cuente con usuario registrado será redirigido a la web principal, que
 - Ingresar a localhost:8000/admin para acceder al sitio de administrador de django
 - Ingresar a localhost:8000/principal para acceder a la página principal de gestión de pacientes
 - Ingresar a localhost:8000/web-princiapl para acceder a la web pública
-- Video: `https://youtu.be/peaPT58vhGA`
+- Video: https://youtu.be/peaPT58vhGA
