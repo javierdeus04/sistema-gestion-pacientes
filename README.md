@@ -11,7 +11,6 @@ Esta aplicación permite manejar una base de datos con las siguientes funciones 
 - Creación de registro por sesión de tratamiento, permitiendo adjuntar archivos en formato de imagen (paraclínica) en caso de ser requerido.
 - Visualización de los registros en forma de lista por orden de antiguedad (de más nuevo a más antiguo).
 - Visualización de cada registro en detalle.
-- Búsqueda de registros por firma (usuario).
 - Visualización de las solicitudes de consulta en forma de lista por orden de antiguedad (de más antigua a más nueva).
 - Visualización de cada solicitud de consulta en detalle.
 - Eliminación de la solicitud de consulta.
@@ -43,4 +42,4 @@ Quién no cuente con usuario registrado será redirigido a la web principal, que
 ## Recorriendo la app:
 - Ingresar a localhost:8000/admin para acceder al sitio de administrador de django
 - Ingresar a localhost:8000/principal para acceder a la página principal de gestión de pacientes
-- Ingresar a localhost:8000/nombre-de-clinica para acceder a la web general
+- Ingresar a localhost:8000/web-princiapl para acceder a la web pública

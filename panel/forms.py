@@ -1,5 +1,5 @@
 from django import forms
-from historiaclinica.models import Registro
+from panel.models import Registro
 
 class RegForm(forms.ModelForm):    
     

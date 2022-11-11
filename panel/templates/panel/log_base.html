@@ -20,9 +20,11 @@
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     {% if user.is_authenticated %}
-                                    <a href="/principal" style="text-decoration:none"><div class="card-header"><h3 class="text-center font-weight-light my-4" style="color:black">Nombre Clinica</h3></div></a>
+                                    <a href="/principal" style="text-decoration:none"><div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4" style="color:black">{{configuracion.nombre_clinica}}</h3></div></a>
                                     {% else %}
-                                    <a href="/web-principal" style="text-decoration:none"><div class="card-header"><h3 class="text-center font-weight-light my-4" style="color:black">Nombre Clinica</h3></div></a>
+                                    <a href="/web-principal" style="text-decoration:none"><div class="card-header">
+                                        <h3 class="text-center font-weight-light my-4" style="color:black">{{configuracion.nombre_clinica}}</h3></div></a>
                                     {% endif %}
                                     <div class="card-body">
                                         {% block content %}{% endblock %}

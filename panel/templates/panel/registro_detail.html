@@ -19,7 +19,7 @@
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <a href="/principal/hc-panel/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
+                                    <a href="/principal/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
                                     <a href="/principal/paciente-update/{{registro.paciente.pk}}"><button class="btn btn-primary" type="submit" >Actualizar datos</button></a>
                                     <a href="/principal/paciente-delete/{{registro.paciente.pk}}"><button class="btn btn-primary" type="submit" >Eliminar</button></a>
                                     <a href="javascript:history.back()"><button class="btn btn-secondary" type="submit" >Atras</button></a>
@@ -35,7 +35,7 @@
                                 <br>{{object.contenido}}
                                 
                                 {% if object.image %} 
-                                <br><b>Adjuntos:</b><br>
+                                <br><br><b>Adjuntos:</b>
                                 <a href="{{object.image.url}}"><br><img height="255" src="{{object.image.url}}"/></a>
                                 {% endif %}
                                 {% if object.image_dos %} 
@@ -44,7 +44,7 @@
                                 {% if object.image_tres %} 
                                 <a href="{{object.image_tres.url}}"><img height="255" src="{{object.image_tres.url}}"/></a>
                                 {% endif %}
-                                <br><br><b>Responsable: {{object.user}}</b>
+                                <br><br><b>Responsable: <p style="color:rgb(0, 8, 255)"> {{object.user}} </p></b>
                                 
                             </div>
                         </div>

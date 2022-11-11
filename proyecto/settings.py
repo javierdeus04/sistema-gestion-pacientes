@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'panel.apps.PanelConfig',
-    'historiaclinica.apps.HistoriaclinicaConfig',
     'web.apps.WebConfig',
 ]
 

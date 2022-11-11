@@ -20,7 +20,7 @@
                                 <br>
 
                                 <!--<li><b><a href>Historia clinica</Agregar></b></li>-->
-                                    <a href="/principal/hc-panel/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
+                                    <a href="/principal/hc-create"><button class="btn btn-primary" type="submit" >Nuevo registro</button></a>
                                     <a href="/principal/paciente-update/{{paciente.pk}}"><button class="btn btn-primary" type="submit" >Actualizar datos</button></a>
                                     <a href="/principal/paciente-delete/{{paciente.pk}}"><button class="btn btn-primary" type="submit" >Eliminar</button></a>
                                     <a href="/principal/paciente-list"><button class="btn btn-secondary" type="submit" >Atras</button></a>                                  
@@ -46,7 +46,7 @@
                                 <tr>
                                 <td><li><b>{{paciente.fecha}}</b></td>
                                 <td> {{paciente.resumen}}</td>
-                                <td><a href="/principal/hc-panel/hc-detail/{{paciente.pk}}">Ver detalle</a></li></td>
+                                <td><a href="/principal/hc-detail/{{paciente.pk}}">Ver detalle</a></li></td>
                                 </tr>
 
                                 {% endfor %}

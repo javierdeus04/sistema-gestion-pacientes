@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.urls import path
 
 from panel.views import (PacienteCreate, PacienteDelete, PacienteDetail, PacienteSearch, PacienteUpdate, 
-                        UsuarioLogin, UsuarioLogout, UsuarioSignUp, principal, PacienteList, ProfileUpdate)
-from historiaclinica.views import hc_panel, ListRegistro, CreateRegistro, DetailRegistro 
+                        UsuarioLogin, UsuarioLogout, UsuarioSignUp, principal, PacienteList, ProfileUpdate,
+                        ListRegistro, CreateRegistro, DetailRegistro)
 from web.views import SolicitudDetail, SolicitudDelete, SolicitudList
 
 
@@ -20,10 +20,9 @@ urlpatterns = [
     path('paciente-search', PacienteSearch.as_view(), name='paciente-search'),
     path('signup', UsuarioSignUp.as_view(), name='usuario-signup'),
     path('user-profile/<int:pk>', ProfileUpdate.as_view(), name="profile-update"),
-    path('hc-panel/', hc_panel, name='hc-panel'),
-    path('hc-panel/hc-list', ListRegistro.as_view(), name='hc-list'),
-    path('hc-panel/hc-create', CreateRegistro.as_view(), name='hc-create'),
-    path('hc-panel/hc-detail/<int:pk>', DetailRegistro.as_view(), name='hc-detail'),
+    path('hc-list', ListRegistro.as_view(), name='hc-list'),
+    path('hc-create', CreateRegistro.as_view(), name='hc-create'),
+    path('hc-detail/<int:pk>', DetailRegistro.as_view(), name='hc-detail'),
     path('solicitud-detalle/<int:pk>', SolicitudDetail.as_view(), name='solicitud-detalle'),
     path('solicitud-delete/<int:pk>', SolicitudDelete.as_view(), name='solicitud-delete'),
     path('solicitud-list/', SolicitudList.as_view(), name='solicitud-delete'),        
